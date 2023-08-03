@@ -99,7 +99,7 @@ const handleSearch=()=>{
         </label>
         <label>
           Number Of Bedrooms
-         <input type='number' value={bedrooms} onChange={(e)=>{setBedrooms(e.target.value)}} />
+         <input type='number' min={0} value={bedrooms} onChange={(e)=>{setBedrooms(e.target.value)}} />
         </label>
         <label>
           Price
@@ -115,12 +115,14 @@ const handleSearch=()=>{
         <button onClick={handleSearch}>Search</button>
       </Grid>
       <Grid container spacing={2}  sx={{marginTop:12}}>
-      {housingData.map((house)=>{
+      {housingData.length!==0?housingData.map((house)=>{
         return(
         <Grid item xs={12} sm={6} md={4}>
         <Card image={house.image} location={house.location} title={house.title} description={house.description} price={house.price} status={house.status} bedrooms={house.bedrooms} bathrooms={house.bathrooms}/>
         </Grid>)
-      })}
+      }):
+      <h1>No results match your search</h1>
+      }
       </Grid>
     </div>
     </Container>
