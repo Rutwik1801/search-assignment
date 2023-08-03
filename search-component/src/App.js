@@ -6,7 +6,6 @@ import {useEffect, useState} from "react"
 import { Container, Grid } from '@mui/material';
 import Card from './components/Card';
 
-
 function App() {
   const [price,setPrice]=useState("select")
   const [bedrooms,setBedrooms]=useState(0)
@@ -78,7 +77,7 @@ const handleSearch=()=>{
   return (
     <Container>
    <div>
-      <div>
+      <Grid style={{padding:"20px"}}>
         <label>
           Status
         <select value={status} onChange={(e)=>{setStatus(e.target.value)}}>
@@ -114,10 +113,13 @@ const handleSearch=()=>{
       </select>
         </label>
         <button onClick={handleSearch}>Search</button>
-      </div>
-      <Grid>
+      </Grid>
+      <Grid container spacing={2}  sx={{marginTop:12}}>
       {housingData.map((house)=>{
-        return(<Card image={house.image} title={house.title} description={house.description} price={house.price} status={house.status} bedrooms={house.bedrooms}/>);
+        return(
+        <Grid item xs={12} sm={6} md={4}>
+        <Card image={house.image} location={house.location} title={house.title} description={house.description} price={house.price} status={house.status} bedrooms={house.bedrooms} bathrooms={house.bathrooms}/>
+        </Grid>)
       })}
       </Grid>
     </div>

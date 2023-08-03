@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+select{
+  padding: 5px 7px;
+  margin:0 20px 0 5px;
+}
+select:active{
+  outline: none;
+}
+input{
+  padding: 5px 7px;
+  margin:0 20px 0 5px;
+}
+
+input:active{
+  outline: none;
+}
+button{
+  padding: 8px 12px;
+  letter-spacing: 2px;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
